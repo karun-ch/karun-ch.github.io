@@ -1,3 +1,3 @@
 Karunakar Cheekolu
 
-Personal Portfolio
+Personal 
