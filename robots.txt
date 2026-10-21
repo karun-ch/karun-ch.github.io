@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karun-ch.github.io/sitemap.xml
