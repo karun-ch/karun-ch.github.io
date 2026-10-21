@@ -31,18 +31,13 @@
   };
 
   /* ---------- theme ---------- */
-  const themeColors = { dark: '#09090b', light: '#fafaf9' };
-  const currentTheme = () =>
-    root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const themeColors = { dark: '#151412', light: '#f6f3ec' };
+  // Light is the default; dark only when the visitor turns it on.
+  const currentTheme = () => (root.dataset.theme === 'dark' ? 'dark' : 'light');
   const syncTheme = () => {
     const t = currentTheme();
     document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.setAttribute('aria-pressed', String(t === 'dark')));
-    if (root.dataset.theme) {
-      document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
-        m.removeAttribute('media');
-        m.content = themeColors[t];
-      });
-    }
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => { m.content = themeColors[t]; });
   };
   const toggleTheme = () => {
     const next = currentTheme() === 'dark' ? 'light' : 'dark';
