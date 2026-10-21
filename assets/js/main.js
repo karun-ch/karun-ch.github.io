@@ -67,6 +67,7 @@
     menuBtn.addEventListener('click', () => {
       const open = links.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
+      if (open) links.querySelector('a')?.focus();
     });
     links.addEventListener('click', (ev) => { if (ev.target.closest('a')) closeMenu(false); });
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeMenu(true); });
